@@ -4,7 +4,6 @@ set -eu
 
 ARCH=$(uname -m)
 VERSION="$(cat ~/version)"
-APP_LOCATION="$(which coda-qt)"
 
 export ARCH VERSION
 export OUTPATH=./dist
@@ -16,7 +15,7 @@ export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 export DEPLOY_QT=1
 
 # Deploy dependencies
-quick-sharun $APP_LOCATION \
+quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
     /usr/share/coolwsd
 

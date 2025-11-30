@@ -6,8 +6,8 @@ cd /tmp
 
 ARCH=$(uname -m)
 VERSION="25.04"
-CORE_PATH="$(pwd)/core"
 CODA_PATH="$(pwd)/CODA"
+CORE_PATH="$CODA_PATH/core"
 PREFIX="/usr"
 
 echo "Installing package dependencies..."

@@ -22,10 +22,12 @@ quick-sharun /usr/bin/coda-qt \
     /usr/share/coolwsd
 
 cp -r "$CODA_PATH"/browser ./AppDir
+cp -r "$CODA_PATH"/core ./AppDir
 
 echo '#!/bin/sh
 mkdir -p /tmp/CODA
 ln -sfn "$APPDIR"/browser /tmp/CODA/browser
+ln -sfn "$APPDIR"/core /tmp/CODA/core
 ' > ./AppDir/bin/fix-bruhmoment.hook
 
 chmod +x ./AppDir/bin/fix-bruhmoment.hook

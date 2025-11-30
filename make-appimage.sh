@@ -12,6 +12,7 @@ export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads/distro/collabora/coda-$VERSION/windows/coda/Assets/logo.png"
 export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
+export ANYLINUX_LIB=1
 #export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
 #export DEPLOY_QT=1
 

@@ -32,5 +32,10 @@ ln -sfn "$APPDIR"/core /tmp/CODA/core
 
 chmod +x ./AppDir/bin/fix-bruhmoment.hook
 
+# debloat
+rm -rf \
+    ./AppDir/browser/archived-packages \
+    ./AppDir/browser/node-modules
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage

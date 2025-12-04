@@ -59,7 +59,7 @@ echo "Compiling Collabora Office for $VERSION..."
 echo "---------------------------------------------------------------"
 cd $CODA_PATH
 ./autogen.sh
-./configure --prefix="$PREFIX" --enable-qtapp --with-lo-path="$CORE_PATH/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
+./configure --prefix="$PREFIX" --enable-qtapp --with-lo-path="lib/tmp/CODA/core/instdir" --with-lokit-path="$CORE_PATH/include" --enable-debug CXXFLAGS="-O2 -g -fPIC"
 make -j$(nproc)
 make install
 

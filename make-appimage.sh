@@ -30,7 +30,7 @@ quick-sharun /usr/bin/coda-qt \
 echo 'COOL_TOPSRCDIR=${SHARUN_DIR}/share/coolwsd' >> ./AppDir/.env
 
 echo '#!/bin/sh
-mkdir -p /tmp/CODA
+mkdir -p /tmp/CODA/core
 ln -sfn "$APPDIR"/lib/tmp/CODA/core/instdir /tmp/CODA/core/instdir
 ' > ./AppDir/bin/fix-bruhmoment.hook
 

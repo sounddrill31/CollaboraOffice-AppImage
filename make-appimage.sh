@@ -19,8 +19,7 @@ export OPTIMIZE_LAUNCH=1
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
-    /usr/share/coolwsd \
-    "$CODA_PATH"/core
+    /usr/share/coolwsd 
 
 #cp -r "$CODA_PATH"/browser ./AppDir
 #cp -r "$CODA_PATH"/core ./AppDir
@@ -29,17 +28,16 @@ quick-sharun /usr/bin/coda-qt \
 # Fedora version also uses this: https://github.com/CollaboraOnline/online/blob/dc6f03d68c3b57b8f7423caf0b0acdc9e2c3dd45/qt/flatpak/com.collabora.Office.json#L29
 echo 'COOL_TOPSRCDIR=${SHARUN_DIR}/share/coolwsd' >> ./AppDir/.env
 
-#echo '#!/bin/sh
-#mkdir -p /tmp/CODA
-#ln -sfn "$APPDIR"/browser /tmp/CODA/browser
-#ln -sfn "$APPDIR"/core /tmp/CODA/core
-#' > ./AppDir/bin/fix-bruhmoment.hook
+echo '#!/bin/sh
+mkdir -p /tmp/CODA
+ln -sfn "$APPDIR"/lib/tmp/CODA/core/instdir /tmp/CODA/core/instdir
+' > ./AppDir/bin/fix-bruhmoment.hook
 
-# chmod +x ./AppDir/bin/fix-bruhmoment.hook
+chmod +x ./AppDir/bin/fix-bruhmoment.hook
 
 # debloat
-rm -rf \
-    ./AppDir/core/include #        \
+#rm -rf \
+#    ./AppDir/core/include #        \
 #    ./AppDir/browser/po           \
 #    ./AppDir/browser/node_modules \
 #    ./AppDir/browser/archived-packages

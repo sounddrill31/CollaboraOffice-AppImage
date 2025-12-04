@@ -19,10 +19,11 @@ export OPTIMIZE_LAUNCH=1
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
-    /usr/share/coolwsd
+    /usr/share/coolwsd \
+    "$CODA_PATH"/core
 
 #cp -r "$CODA_PATH"/browser ./AppDir
-cp -r "$CODA_PATH"/core ./AppDir
+#cp -r "$CODA_PATH"/core ./AppDir
 
 # This environment variable ensures we don't need the hack to link the browser directory during runtime. 
 # Fedora version also uses this: https://github.com/CollaboraOnline/online/blob/dc6f03d68c3b57b8f7423caf0b0acdc9e2c3dd45/qt/flatpak/com.collabora.Office.json#L29

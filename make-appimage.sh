@@ -19,7 +19,8 @@ export OPTIMIZE_LAUNCH=1
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
-    /usr/share/coolwsd 
+    /usr/share/coolwsd \
+    "$CODA_PATH"/core
 
 #cp -r "$CODA_PATH"/browser ./AppDir
 #cp -r "$CODA_PATH"/core ./AppDir

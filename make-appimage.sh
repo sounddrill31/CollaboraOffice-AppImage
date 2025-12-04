@@ -29,12 +29,12 @@ quick-sharun /usr/bin/coda-qt \
 # Fedora version also uses this: https://github.com/CollaboraOnline/online/blob/dc6f03d68c3b57b8f7423caf0b0acdc9e2c3dd45/qt/flatpak/com.collabora.Office.json#L29
 echo 'COOL_TOPSRCDIR=${SHARUN_DIR}/share/coolwsd' >> ./AppDir/.env
 
-echo '#!/bin/sh
-mkdir -p /tmp/CODA
-ln -sfn "$APPDIR"/lib/tmp/CODA/core/instdir /tmp/CODA/core/instdir
-' > ./AppDir/bin/fix-bruhmoment.hook
-
-chmod +x ./AppDir/bin/fix-bruhmoment.hook
+#echo '#!/bin/sh
+#mkdir -p /tmp/CODA
+#ln -sfn "$APPDIR"/lib/tmp/CODA/core/instdir /tmp/CODA/core/instdir
+#' > ./AppDir/bin/fix-bruhmoment.hook
+#
+#chmod +x ./AppDir/bin/fix-bruhmoment.hook
 
 # debloat
 #rm -rf \

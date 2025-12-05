@@ -16,6 +16,9 @@ export ANYLINUX_LIB=1
 export DESKTOP="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads/distro/collabora/coda-$VERSION/qt/com.collabora.Office.desktop"
 export OPTIMIZE_LAUNCH=1
 
+mkdir -p ./AppDir/tmp/CODA/core
+cp -r "$CODA_PATH"/core/instdir ./AppDir/tmp/CODA/core
+
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
@@ -28,6 +31,7 @@ quick-sharun /usr/bin/coda-qt \
 # This environment variable ensures we don't need the hack to link the browser directory during runtime. 
 # Fedora version also uses this: https://github.com/CollaboraOnline/online/blob/dc6f03d68c3b57b8f7423caf0b0acdc9e2c3dd45/qt/flatpak/com.collabora.Office.json#L29
 echo 'COOL_TOPSRCDIR=${SHARUN_DIR}/share/coolwsd' >> ./AppDir/.env
+echo 'LC_CTYPE=en_US.UTF-8' >> ./AppDir/.env
 
 echo '#!/bin/sh
 mkdir -p /tmp/CODA/core

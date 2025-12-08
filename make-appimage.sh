@@ -22,7 +22,7 @@ export LOCOREPATH="$CORE_PATH"
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
     /usr/share/coolwsd \
-    $CORE_PATH
+    /usr/lib/core
 
 
 echo 'LOCOREPATH=${SHARUN_DIR}/lib/core' >> ./AppDir/.env

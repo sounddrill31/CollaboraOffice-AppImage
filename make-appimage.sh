@@ -5,7 +5,7 @@ set -eu
 ARCH=$(uname -m)
 VERSION="$(cat ~/version)"
 CODA_PATH="$(cat ~/CODA_PATH)"
-
+CORE_PATH="$(cat ~/CORE_PATH)"
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
@@ -16,29 +16,18 @@ export META="https://raw.githubusercontent.com/CollaboraOnline/online/refs/heads
 export OUTNAME=CODA-"$VERSION"-anylinux-"$ARCH".AppImage
 export ANYLINUX_LIB=1
 export OPTIMIZE_LAUNCH=1
+export LOCOREPATH="$CORE_PATH"
 
 # Deploy dependencies
 quick-sharun /usr/bin/coda-qt \
     /usr/share/coda-qt \
     /usr/share/coolwsd
 
-cp -r "$CODA_PATH"/browser ./AppDir
-cp -r "$CODA_PATH"/core ./AppDir
 
-echo '#!/bin/sh
-mkdir -p /tmp/CODA
-ln -sfn "$APPDIR"/browser /tmp/CODA/browser
-ln -sfn "$APPDIR"/core /tmp/CODA/core
-' > ./AppDir/bin/fix-bruhmoment.hook
+echo 'LOCOREPATH=${SHARUN_DIR}/lib/core' >> ./AppDir/.env
+echo 'COOL_TOPSRCDIR=${SHARUN_DIR}/share/coolwsd' >> ./AppDir/.env
+echo 'LC_CTYPE=en_US.UTF-8' >> ./AppDir/.env
 
-chmod +x ./AppDir/bin/fix-bruhmoment.hook
-
-# debloat
-rm -rf \
-    ./AppDir/core/include         \
-    ./AppDir/browser/po           \
-    ./AppDir/browser/node_modules \
-    ./AppDir/browser/archived-packages
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage

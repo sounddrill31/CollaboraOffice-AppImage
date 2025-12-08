@@ -7,7 +7,8 @@ cd /tmp
 ARCH=$(uname -m)
 VERSION="25.04"
 CODA_PATH="$(pwd)/CODA"
-CORE_PATH="$CODA_PATH/core"
+CORE_PATH="/usr/lib/core"
+export LOCOREPATH="$CORE_PATH"
 PREFIX="/usr"
 
 echo "Installing package dependencies..."
@@ -70,3 +71,4 @@ whereis coda-qt
 
 echo "$VERSION"> ~/version
 echo "$CODA_PATH" > ~/CODA_PATH
+echo "$CORE_PATH" > ~/CORE_PATH
